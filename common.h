@@ -3,7 +3,7 @@
 #include <unistd.h>
 #define MSG_STATE_SIZE 6
 #define MSG_BOARD_SIZE 10
-#define MSG_SIZE sizeof(struct infoMessage)
+#define MSG_SIZE 1024
 #define MV_SIZE sizeof(struct move)
 
 
@@ -58,7 +58,7 @@ void printTable (int table[3][3] ) {
 
 void recv_message(int from_sockfd, struct infoMessage* msg)
 {
-    read(from_sockfd, msg, MSG_SIZE);
+    read(from_sockfd,(void*) msg, MSG_SIZE);
 
 }
 

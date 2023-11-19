@@ -290,20 +290,24 @@ void main()
             printf (" ACTUALICE EL TURN %d", st.turnPlayer);
 
             // le mandas a los jugadores eso
-            for (int i = 0; i < 3; ++i)
+            for (int i = 0; i < 3; i++)
             {
-                for (int j = 0; j < 3; ++j)
+                for (int j = 0; j < 3; j++)
                 {
                     mes[0].table[i][j] = st.table[i][j];
                     mes[1].table[i][j] = st.table[i][j];
                 }
             }
 
-            for (int i = 0; i < MAX_PLAYERS; ++i)
+            for (int i = 0; i < MAX_PLAYERS; i++)
             {
                 mes[i].gameState= st.gameState;
                 mes[i].turnPlayer= st.turnPlayer;
                 mes[i].winner=st.winner; 
+                printf ("El estado del juego %d", st.gameState);
+                printf("\n");
+                printf ("El jugador de turno %d", st.turnPlayer);
+                printf("\n");
                 //avisa 
                 sendMessage(players[i], &mes[i]);
             } 
